@@ -1,6 +1,6 @@
 ---
 name: ai-source-code-reader
-description: Deep source-code reading workflow for AI/ML repositories. Use when Codex needs to explain, audit, or trace implementation details in lower-level AI systems such as Megatron-LM, vLLM, DeepSpeed, transformers kernels, distributed training/inference code, or higher-level RLHF/agent/training stacks such as VeRL, Ms-Swift, TinyZero, Search-R1, especially when the user wants call-flow tracing, line-by-line explanation, tensor shape semantics, configuration branches, math formulas, and examples grounded in the current code.
+description: Deeply read AI/ML source code by tracing call paths, configs, branches, tensor shapes, formulas, and grounded examples. Use for Megatron, vLLM, VeRL, Ms-Swift, TinyZero, Search-R1, or similar repos.
 ---
 
 # AI Source Code Reader
