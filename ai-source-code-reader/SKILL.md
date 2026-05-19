@@ -1,13 +1,13 @@
 ---
 name: ai-source-code-reader
-description: Deeply read AI/ML source code by tracing call paths, configs, branches, tensor shapes, formulas, and grounded examples. Use for Megatron, vLLM, VeRL, Ms-Swift, TinyZero, Search-R1, or similar repos.
+description: Deeply explain existing AI/ML source code by tracing call paths, configs, branches, tensor shapes, formulas, and grounded examples. Use only when the user explicitly asks to explain, walk through, or understand code/source implementation, or shows confusion about what specific code does. Do not use for general AI questions, code writing, debugging, refactoring, testing, repository maintenance, or task execution unless explaining existing code is the main request.
 ---
 
 # AI Source Code Reader
 
 ## Overview
 
-Use this skill to read AI source code deeply instead of answering from memory or from surface-level files. Prefer concrete repository evidence, precise call paths, tensor shape tracking, and validated examples over broad conceptual summaries.
+Use this skill only for explicit source-code explanation tasks or when the user is asking what existing code does. Do not use it for ordinary implementation, debugging, refactoring, testing, Git, or repository-maintenance tasks unless the main request is to explain existing code. Prefer concrete repository evidence, precise call paths, tensor shape tracking, and validated examples over broad conceptual summaries.
 
 For nontrivial requests, read `references/deep-reading-checklist.md` before producing the final explanation.
 
