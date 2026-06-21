@@ -61,14 +61,14 @@ For nontrivial requests, read `references/deep-reading-checklist.md` before prod
 
 Use this structure for substantial explanations:
 
-1. **阅读范围**: target, assumptions, repo/version clues, and what is out of scope.
-2. **讲解顺序**: ordered file/function path with one-line role per item.
-3. **整体流程**: compact end-to-end control/data flow.
-4. **逐段讲解**: critical code blocks with line references, conditions, and side effects.
-5. **张量与 shape**: table or bullets covering semantic meaning and transformations.
-6. **公式**: LaTeX formulas tied directly to the code.
-7. **例子**: validated small example for the current path.
-8. **通俗总结**: short explanation that preserves the important caveats.
+1. **Scope**: target, assumptions, repo/version clues, and what is out of scope.
+2. **Reading Order**: ordered file/function path with one-line role per item.
+3. **End-To-End Flow**: compact end-to-end control/data flow.
+4. **Block Walkthrough**: critical code blocks with line references, conditions, and side effects.
+5. **Tensors And Shapes**: table or bullets covering semantic meaning and transformations.
+6. **Formulas**: LaTeX formulas tied directly to the code.
+7. **Example**: validated small example for the current path.
+8. **Plain-Language Summary**: short explanation that preserves the important caveats.
 
 For small questions, use a shorter version but keep source evidence, shape tracking, and caveats.
 

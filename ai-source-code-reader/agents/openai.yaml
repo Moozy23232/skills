@@ -1,4 +1,4 @@
 interface:
-  display_name: "源码阅读辅助"
-  short_description: "深入追踪 AI 源码调用链、张量 shape 与公式"
-  default_prompt: "Use $ai-source-code-reader 来按真实调用链解释这段 AI 源码，并说明张量 shape、公式和贴合代码的例子。"
+  display_name: "AI Source Code Reader"
+  short_description: "Trace AI call paths, tensor shapes, and formulas"
+  default_prompt: "Use $ai-source-code-reader to explain this AI source code by tracing the real call path, tensor shapes, formulas, and code-grounded examples."
