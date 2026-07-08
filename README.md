@@ -12,7 +12,7 @@ A personal reusable skills repository for AI coding tools.
 
 | Skill | Notes |
 |---|---|
-| `codebase-learning-coach` | [Usage](docs/codebase-learning-coach.md). Updated from the original `ai-source-code-reader` skill. The project/module learning workflow and `.codojo/` progress-file model are inspired by the open-source [Codojo](https://github.com/ttguy0707/codojo/tree/main) project. |
+| `codebase-learning-coach` | [Usage](.docs/codebase-learning-coach.md). Updated from the original `ai-source-code-reader` skill. The project/module learning workflow and `.codojo/` progress-file model are inspired by the open-source [Codojo](https://github.com/ttguy0707/codojo/tree/main) project. |
 
 ## Attribution Notes
 
