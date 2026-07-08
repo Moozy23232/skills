@@ -1,4 +1,0 @@
-interface:
-  display_name: "AI Source Code Reader"
-  short_description: "Trace AI call paths, tensor shapes, and formulas"
-  default_prompt: "Use $ai-source-code-reader to explain this AI source code by tracing the real call path, tensor shapes, formulas, and code-grounded examples."

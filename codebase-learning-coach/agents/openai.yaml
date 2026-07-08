@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codebase Learning Coach"
+  short_description: "Learn projects, modules, and source paths"
+  default_prompt: "Use $codebase-learning-coach to learn this codebase or module through a scoped map, guided plan, and source-grounded deep readings."
