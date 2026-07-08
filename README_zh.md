@@ -1,8 +1,12 @@
-# skills
+<div align="center">
+
+# Skills
+
+个人通用 skills 仓库，用于存放可在不同 AI 编程工具中复用的 skills。
 
 [English](README.md)
 
-个人通用 skills 仓库，用于存放可在不同 AI 编程工具中复用的 skills。
+</div>
 
 ## Skills
 

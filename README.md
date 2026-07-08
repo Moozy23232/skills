@@ -1,8 +1,12 @@
-# skills
+<div align="center">
+
+# Skills
+
+A personal reusable skills repository for AI coding tools.
 
 [简体中文](README_zh.md)
 
-A personal reusable skills repository for AI coding tools.
+</div>
 
 ## Skills
 
