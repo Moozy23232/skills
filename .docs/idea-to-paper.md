@@ -51,10 +51,31 @@ Use $idea-to-paper to build a claim-evidence matrix from these experiment artifa
 To initialize non-destructive research state:
 
 ```bash
+python3 /path/to/idea-to-paper/scripts/init_research_workspace.py /path/to/project --title "Project Title" --dry-run
 python3 /path/to/idea-to-paper/scripts/init_research_workspace.py /path/to/project --title "Project Title"
 ```
 
-The script creates missing files under `docs/research/` and preserves all existing files.
+The explicit project path is required. Inspect the dry-run first; the script rejects resolved paths outside that project, creates missing files under `docs/research/`, and preserves all existing files.
+
+## Optional `grill-me` Handoff
+
+The skill is standalone. During research specification or one bounded pre-freeze pass, it can hand the unresolved decisions directly to the original `grill-me` when the user explicitly invokes or accepts it.
+
+- Only when that interview is materially useful, the skill checks whether the runtime reports `grill-me` as installed or callable. If runtime inventory is inconclusive, it checks only whether the exact standard install destination exists and does not open its contents.
+- An installed but non-implicit `grill-me` receives a ready-to-run explicit invocation; it is never offered for reinstallation.
+- If it is absent, the skill says that Grill is optional and asks once whether to install the official original. Declining immediately returns to the complete built-in clarification loop.
+- Explicit approval delegates installation to the approved skill installer. It installs only missing official `grill-me` and required `grilling` components from `mattpocock/skills`, aborts on existing destinations, and leaves downloaded files unchanged.
+- A newly installed skill is normally available on the next turn; the built-in loop can continue while waiting.
+- The handoff contains only the current proposal, fixed constraints, resolved and open decisions, and exit criteria.
+- The prompt restricts `grill-me` to asking one question at a time and returning decisions. It must not write files, install anything, implement, run experiments, evaluate evidence, or advance the research phase.
+- `idea-to-paper` verifies the returned decisions and remains the sole owner of project state and phase transitions.
+- No Grill workflow is copied into `idea-to-paper`, and it does not depend directly on Grill's internal skills.
+- Existing skills, global configuration, environments, sibling repositories, and unrelated project files remain read-only.
+- The availability check does not validate, hash, fingerprint, or inspect Grill's file contents.
+- It never patches, replaces, updates, repairs, reinstalls, or overwrites an existing skill.
+- Grill never substitutes for literature evidence, experiment evaluation, or paper review.
+
+All writes made by `idea-to-paper` stay inside the explicitly selected research project. Run the workspace initializer with an explicit project root and inspect its dry-run before applying changes.
 
 ## Evidence Guardrails
 

@@ -9,6 +9,15 @@ description: Turn an empirical research question or tentative idea into an evide
 
 Move a research project from uncertainty to defensible evidence without pretending that later stages are complete. Resume at the earliest unsupported gate, keep claims traceable to sources or experiments, and preserve enough state for a new session to continue reliably.
 
+## Keep Work Inside the Research Scope
+
+- Treat the explicitly selected research project and user-provided artifacts as the only writable scope.
+- Treat installed skills, runtime configuration, shell profiles, global environments, sibling repositories, and unrelated project files as external read-only state.
+- Keep generated downloads, caches, logs, and outputs inside the selected project or an explicitly approved temporary location.
+- Never update, patch, rename, delete, repair, reinstall, or overwrite an existing skill or dependency.
+- Use a companion skill only when the user explicitly invokes it or the runtime permits a user-approved handoff. Respect its invocation policy; never bypass its entry point to reach internal skills.
+- Treat an explicit “yes” to a narrowly scoped companion-install prompt as authorization only to install the named missing components from their official source through the approved skill installer. Make no other external change.
+
 ## Route the Request
 
 Inspect the user's materials and repository before choosing a phase. Start at the narrowest phase that matches the evidence already present.
@@ -34,7 +43,7 @@ Before making a research recommendation:
 3. Use current scholarly search when novelty, related work, datasets, benchmarks, or venue rules may have changed. Prefer original papers, official repositories, and official benchmark or venue pages.
 4. Read full text for the closest collisions when available; do not infer novelty from titles, abstracts, or absence in one search engine.
 5. Cite external sources and link local claims to concrete files or artifacts.
-6. Detect available companion skills and tools before using them. Never assume that a named survey, grilling, cleanup, writing, or review skill is installed.
+6. When the current phase materially benefits from a companion skill, check only whether the runtime reports it as installed or callable. If the runtime inventory is inconclusive, check only whether its exact standard install destination exists; do not open it. This is an availability check: do not validate, fingerprint, hash, or inspect file contents.
 
 Read [references/literature-protocol.md](references/literature-protocol.md) for idea discovery, survey, novelty, or feasibility work.
 
@@ -66,6 +75,27 @@ State confidence and unresolved search gaps. Ask the user before a `PIVOT` or `N
 
 ## Phase 2: Convert the Idea into an Executable Spec
 
+The protocol below is complete on its own. When material ambiguities make a deeper interview useful:
+
+1. Check whether the current runtime reports `grill-me` as installed or callable. If that inventory is inconclusive, check only whether the exact standard `grill-me` install destination exists; do not open its files.
+2. If callable or installed, use the original `grill-me` entry point with the bounded handoff below. If it is installed but not exposed for model invocation, give the user the ready-to-run explicit invocation instead of offering to reinstall it. Do not copy its workflow or depend directly on its internal skills.
+3. If absent, say that Grill is optional and the built-in questions can continue, then ask once whether to install the official original.
+4. If the user declines, continue locally and do not ask again during the current phase.
+5. If the user agrees, hand installation to the approved `skill-installer`. Check only exact destination existence and install only absent components from `mattpocock/skills`: `skills/productivity/grill-me` and its required `skills/productivity/grilling` component. Abort on any occupied destination, preserve every downloaded file unchanged, and do not validate or repair either skill.
+6. Tell the user when the runtime will expose the new skill, normally on the next turn. Continue with the built-in questions now unless the user prefers to resume after refresh.
+
+Give `grill-me` only the current proposal, fixed constraints, resolved decisions, open decisions, and exit criteria. Instruct it to ask one question at a time and only clarify decisions—do not edit files, install anything, implement, run experiments, evaluate evidence, or advance the research phase. After the interview, verify its compact decision handoff against project evidence and persist accepted decisions in this project's canonical research context.
+
+When the runtime requires direct user invocation, provide a ready-to-run handoff instead of bypassing that policy:
+
+```text
+Use $grill-me only to resolve these open research decisions: <open decisions>.
+Treat <verified evidence> and <fixed constraints> as fixed context. Ask one
+question at a time. Do not edit files, install, implement, run experiments,
+review evidence, or advance the research phase. Return confirmed decisions,
+assumptions, rejected options, and unresolved blockers to $idea-to-paper.
+```
+
 Interrogate one material ambiguity at a time:
 
 - What exact construct or phenomenon is being studied?
@@ -95,10 +125,11 @@ For work spanning sessions, read [references/research-state-protocol.md](referen
 If persistent state is requested and no equivalent exists, run:
 
 ```bash
+python3 "<skill-directory>/scripts/init_research_workspace.py" <project-root> --title "<project title>" --dry-run
 python3 "<skill-directory>/scripts/init_research_workspace.py" <project-root> --title "<project title>"
 ```
 
-Resolve `<skill-directory>` from the location of this `SKILL.md`; do not assume the target repository contains the script. The script creates only missing files under `docs/research/` and never overwrites existing content. Review its output, then link the research status from the root README when appropriate.
+Resolve `<skill-directory>` from the location of this `SKILL.md`; do not assume the target repository contains the script. Pass an explicit `<project-root>`, inspect the dry-run, and write only when the resolved target is the selected research project. The script rejects paths that escape that root and creates files exclusively, so existing content is never overwritten. Review its output, then link the research status from the root README only when that README belongs to the selected project.
 
 At every resumed session:
 
@@ -121,6 +152,8 @@ Advance in dependency order:
 5. `ablation/robustness`: locate the mechanism and its limits.
 
 Freeze data splits, model and dependency versions, baselines, metrics, training budget, checkpoint selection, evaluator, seeds, and stop rules before formal comparisons. Apply the same protocol to comparable methods. Record deviations as new protocol versions rather than silently editing history.
+
+If a formal protocol still contains material unresolved decisions, optionally hand only those decisions to an explicitly accepted `grill-me` session under the same no-write, no-implementation limits. Otherwise use the built-in question loop. Do not re-grill settled fields or use Grill to reinterpret observed results.
 
 For every run, record commit, environment, configuration, inputs, outputs, logs, artifact paths, result, and interpretation boundary. Preserve failed runs and negative results. Request confirmation before a materially expensive run and include a cost/time estimate.
 

@@ -179,9 +179,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "project_root",
-        nargs="?",
-        default=".",
-        help="Existing project root (default: current directory)",
+        help="Explicit path to the existing project root",
     )
     parser.add_argument(
         "--state-dir",
@@ -217,6 +215,14 @@ def resolve_target(project_root: str, state_dir: str) -> tuple[Path, Path]:
     return root, target
 
 
+def require_path_in_project(root: Path, path: Path) -> None:
+    """Reject managed paths whose existing symlinks resolve outside the project."""
+    try:
+        path.resolve(strict=False).relative_to(root)
+    except ValueError as exc:
+        raise ValueError(f"managed path resolves outside the project root: {path}") from exc
+
+
 def render(template: str, title: str, today: str) -> str:
     return template.replace("{{TITLE}}", title).replace("{{DATE}}", today)
 
@@ -245,6 +251,14 @@ def main() -> int:
             return 2
 
     required_directories = (target, *(target / item for item in DIRECTORIES))
+    destinations = tuple(target / relative for relative in TEMPLATES)
+    try:
+        for path in (*required_directories, *destinations):
+            require_path_in_project(root, path)
+    except ValueError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 2
+
     for directory in required_directories:
         if directory.exists() and not directory.is_dir():
             print(
@@ -254,8 +268,7 @@ def main() -> int:
             )
             return 2
 
-    for relative in TEMPLATES:
-        destination = target / relative
+    for destination in destinations:
         if destination.exists() and destination.is_dir():
             print(
                 f"ERROR: required file path exists as a directory: {destination}",
@@ -264,7 +277,7 @@ def main() -> int:
             return 2
 
     planned = [target / directory for directory in DIRECTORIES]
-    planned.extend(target / relative for relative in TEMPLATES)
+    planned.extend(destinations)
 
     if args.dry_run:
         print(f"Research state root: {target}")
@@ -284,7 +297,10 @@ def main() -> int:
     for relative, template in TEMPLATES.items():
         destination = target / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
-        if destination.exists():
+        try:
+            with destination.open("x", encoding="utf-8") as output:
+                output.write(render(template, title, today))
+        except FileExistsError:
             if destination.is_dir():
                 print(
                     f"ERROR: required file path exists as a directory: {destination}",
@@ -294,7 +310,6 @@ def main() -> int:
             print(f"SKIP existing: {destination}")
             skipped_files += 1
             continue
-        destination.write_text(render(template, title, today), encoding="utf-8")
         print(f"CREATE: {destination}")
         created_files += 1
 

@@ -51,10 +51,31 @@ Use $idea-to-paper to 根据这些实验产物建立 claim-evidence matrix，并
 可以用下面的命令无覆盖地初始化研究状态：
 
 ```bash
+python3 /path/to/idea-to-paper/scripts/init_research_workspace.py /path/to/project --title "Project Title" --dry-run
 python3 /path/to/idea-to-paper/scripts/init_research_workspace.py /path/to/project --title "Project Title"
 ```
 
-脚本只会在 `docs/research/` 下创建缺失文件，不会覆盖已有内容。
+必须显式传入项目路径。先检查 dry-run；脚本会拒绝解析到项目外的路径，只在 `docs/research/` 下创建缺失文件，并保留所有已有内容。
+
+## 可选 `grill-me` 交接
+
+这个 skill 可以独立运行。在研究方案澄清阶段或 formal protocol 冻结前的一次限定追问中，可以在使用者显式调用或同意后，把尚未解决的决策直接交给原版 `grill-me`。
+
+- 只有确实需要这次深度追问时，才检查当前运行时是否报告 `grill-me` 已安装或可调用；如果运行时清单无法确定，只检查标准安装目标是否存在，不打开其中内容。
+- 对已经安装但不允许隐式调用的 `grill-me`，只提供可直接执行的显式调用，不提示重装。
+- 如果没有，skill 会先说明 Grill 是可选项，再询问一次是否安装官方原版；拒绝后立即使用完整的内置追问流程。
+- 使用者明确同意后，才把安装交给环境认可的 skill installer：只从 `mattpocock/skills` 安装缺失的官方 `grill-me` 及其所需 `grilling` 组件；目标已存在时中止，下载文件保持原样。
+- 新安装的 skill 通常在下一轮可用；等待刷新期间仍可继续内置追问。
+- handoff 只包含当前方案、固定约束、已解决和待解决决策以及退出条件。
+- prompt 把 `grill-me` 限定为一次问一个问题并返回决策；不得写文件、安装、实现、运行实验、评估证据或推进研究阶段。
+- 返回的决策仍由 `idea-to-paper` 对照证据核验，项目状态与阶段推进也只归 `idea-to-paper` 管理。
+- 不把 Grill 的内部流程复制进 `idea-to-paper`，也不直接依赖 Grill 内部使用的 skill。
+- 已安装 skill、全局配置、环境、同级仓库和项目无关文件一律只读。
+- 可用性检查不校验、不计算哈希、不制作指纹，也不读取 Grill 的文件内容。
+- 绝不修补、替换、更新、修复、重装或覆盖已有 skill。
+- Grill 不替代文献证据、实验评估或论文审稿。
+
+`idea-to-paper` 的所有写操作必须位于明确选中的研究项目内。初始化前要显式传入项目根目录，并先检查 dry-run。
 
 ## 证据底线
 

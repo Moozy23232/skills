@@ -26,6 +26,11 @@ Do not repeat completed phases if the repository already contains sound artifact
 - Separate reported facts, local observations, inferences, and proposals.
 - Prefer original papers, official artifacts, and full text for the closest related work.
 - Do not claim novelty merely because a search did not find a match.
+- Keep all writes, downloads, caches, logs, and outputs inside the explicitly selected research project or an approved temporary location; treat installed skills, global configuration, environments, sibling repositories, and unrelated files as read-only.
+- Check whether `grill-me` is installed or callable only when Phase 2 or a pre-freeze protocol pass materially benefits from it. If runtime inventory is inconclusive, check only exact standard destination existence. Never validate, fingerprint, hash, or inspect file contents.
+- If callable or installed, use the original `grill-me` entry point with a narrow no-write, no-implementation interview prompt. When installed but not exposed for model invocation, provide the explicit invocation instead of offering a reinstall; do not copy its workflow or call its internal skills directly.
+- If absent, ask once whether to install the official original. On explicit approval, delegate only the missing `grill-me` and required `grilling` components to the approved skill installer; abort on existing destinations and never modify downloaded or existing files. Otherwise use the complete built-in loop.
+- Keep resolved research decisions in the project's canonical research context; do not invoke a stateful companion that could create a competing glossary or ADR tree.
 - Ask one material question at a time and persist the answer.
 - Stop for decisions that change the central claim, research direction, material cost, or risk.
 - Keep raw experiment artifacts and finalized manifests immutable.
