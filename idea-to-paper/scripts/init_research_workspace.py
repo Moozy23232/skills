@@ -155,8 +155,8 @@ Updated: {{DATE}}
 
 Updated: {{DATE}}
 
-| Claim ID | Exact claim | Scope/assumptions | Protocol and runs | Figure/table | Counterevidence | Status |
-|---|---|---|---|---|---|---|
+| Claim ID | Exact claim | Scope and assumptions | Supporting protocol/runs | Figure/table | Related work | Counterevidence | Status |
+|---|---|---|---|---|---|---|---|
 
 Allowed statuses: `supported`, `qualified`, `missing`, `contradicted`, `out-of-scope`.
 
