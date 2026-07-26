@@ -1,0 +1,4 @@
+interface:
+  display_name: "Idea to Paper"
+  short_description: "Turn research ideas into evidence-backed papers"
+  default_prompt: "Use $idea-to-paper to turn this research idea into a staged, evidence-backed project and paper."
