@@ -22,7 +22,7 @@ Turn a research direction, tentative idea, or existing project into reproducible
 
 ## Getting Started
 
-Install only the skill you need. Replace `<skill-name>` with the directory name of any skill listed below.
+Install only the skill you need. Replace `<skill-name>` with the directory name of any skill listed above.
 
 ### Codex
 

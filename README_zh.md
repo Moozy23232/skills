@@ -22,7 +22,7 @@
 
 ## 快速开始
 
-只安装你需要的 skill。将 `<skill-name>` 替换为下方任意 skill 的目录名。
+只安装你需要的 skill。将 `<skill-name>` 替换为上方任意 skill 的目录名。
 
 ### 在 Codex 中安装
 
