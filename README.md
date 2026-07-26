@@ -2,20 +2,20 @@
 
 # Skills
 
-A personal reusable skills repository for AI coding tools.
+Reusable skills for research and code learning with AI coding tools.
 
 [简体中文](README_zh.md)
 
 </div>
 
-## Skills
+## Available Skills
 
-| Skill | Notes |
-|---|---|
-| `codebase-learning-coach` | [Usage](.docs/codebase-learning-coach.md). Updated from the original `ai-source-code-reader` skill. The project/module learning workflow and `.codojo/` progress-file model are inspired by the open-source [Codojo](https://github.com/ttguy0707/codojo/tree/main) project. |
-| `idea-to-paper` | [Usage](.docs/idea-to-paper.md). Helps turn a research direction, tentative idea, or existing project into reproducible experiments and a paper whose claims remain connected to evidence. Adapted from the user-provided research workflow reference; it can optionally use the original `grill-me` from [mattpocock/skills](https://github.com/mattpocock/skills) for focused clarification. |
+Choose a skill below, click its name for the full guide, and invoke it in a compatible AI coding tool.
 
-## Attribution Notes
+### [`codebase-learning-coach`](.docs/codebase-learning-coach.md)
 
-- Use this README to record high-level references, inspirations, and lineage for skills in this repository.
-- If a skill copies code, assets, or substantial text from another open-source project, include the required license or notice file near that skill as well.
+Learn an unfamiliar codebase at the project, module, or source level. It can map a repository, trace real call paths and data flow, explain implementation details, and keep a long-running learning plan.
+
+### [`idea-to-paper`](.docs/idea-to-paper.md)
+
+Turn a research direction, tentative idea, or existing project into reproducible experiments and an evidence-backed paper. It can investigate nearby work, test feasibility, plan experiments, resume research state, and connect paper claims to actual results.
