@@ -13,7 +13,7 @@ A personal reusable skills repository for AI coding tools.
 | Skill | Notes |
 |---|---|
 | `codebase-learning-coach` | [Usage](.docs/codebase-learning-coach.md). Updated from the original `ai-source-code-reader` skill. The project/module learning workflow and `.codojo/` progress-file model are inspired by the open-source [Codojo](https://github.com/ttguy0707/codojo/tree/main) project. |
-| `idea-to-paper` | [Usage](.docs/idea-to-paper.md). A standalone six-stage, evidence-gated workflow for idea discovery, adversarial specification, persistent research state, staged experiments, paper construction, and theory/reviewer checks; adapted from the user-provided research workflow reference, with an optional constrained handoff to the original `grill-me` from [mattpocock/skills](https://github.com/mattpocock/skills). |
+| `idea-to-paper` | [Usage](.docs/idea-to-paper.md). Helps turn a research direction, tentative idea, or existing project into reproducible experiments and a paper whose claims remain connected to evidence. Adapted from the user-provided research workflow reference; it can optionally use the original `grill-me` from [mattpocock/skills](https://github.com/mattpocock/skills) for focused clarification. |
 
 ## Attribution Notes
 
