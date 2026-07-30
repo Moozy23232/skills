@@ -20,6 +20,10 @@ Learn an unfamiliar codebase at the project, module, or source level. It can map
 
 Turn a research direction, tentative idea, or existing project into reproducible experiments and an evidence-backed paper. It can investigate nearby work, test feasibility, plan experiments, resume research state, and connect paper claims to actual results.
 
+### [`paper-reading-coach`](.docs/paper-reading-coach.md)
+
+Read one paper from orientation to verifiable understanding. It can map a functional reading route, repair prerequisites, unpack equations and figures, check claims with small reproducible tests, and use active recall to reveal learning gaps.
+
 ## Getting Started
 
 Install only the skill you need. Replace `<skill-name>` with the directory name of any skill listed above.
