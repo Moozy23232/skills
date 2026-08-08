@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper Reading Coach"
+  short_description: "Read papers deeply with evidence and active recall"
+  default_prompt: "Use $paper-reading-coach to help me deeply understand and verify this paper."
