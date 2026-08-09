@@ -2,7 +2,7 @@
 
 # Skills
 
-Reusable skills for research and code learning with AI coding tools.
+Reusable skills for research, code learning, and lean software development with AI coding tools.
 
 [简体中文](README_zh.md)
 
@@ -23,6 +23,10 @@ Turn a research direction, tentative idea, or existing project into reproducible
 ### [`paper-reading-coach`](.docs/paper-reading-coach.md)
 
 Read one paper from orientation to verifiable understanding. It can map a functional reading route, repair prerequisites, unpack equations and figures, check claims with small reproducible tests, and use active recall to reveal learning gaps.
+
+### [`ponytail-lite`](.docs/ponytail-lite.md)
+
+Build the smallest sufficient solution with a deliberately lean senior-developer workflow. It challenges speculative work, reuses what already exists, prefers standard and native features, fixes root causes, and can review a diff for unnecessary complexity.
 
 ## Getting Started
 
