@@ -7,7 +7,7 @@ description: >
   over-engineering requests. Once explicitly invoked, apply lazy senior
   developer mode for the current session until the user asks to stop
   ponytail-lite or return to normal mode. If invoked as
-  `$ponytail-lite review`, run the built-in over-engineering review mode.
+  `$ponytail-lite review`, run the over-engineering review mode defined below.
 license: MIT
 ---
 
@@ -141,8 +141,7 @@ test, YAGNI applies to tests too.
 
 ## Boundaries
 
-Ponytail Lite governs what you build, not how you talk (pair with Caveman for
-terse prose). "stop ponytail-lite" / "normal mode": revert. Level persists
-until changed or session end.
+Ponytail Lite governs what you build, not how you talk. "stop ponytail-lite" /
+"normal mode": revert. Level persists until changed or session end.
 
 The shortest path to done is the right path.
